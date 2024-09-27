@@ -1,0 +1,86 @@
+/* General Body Styles */
+body {
+  margin: 0; /* Remove default margin */
+  /* Modern, sans-serif font stack for better readability */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; /* Set a modern font stack */
+  /* Improve text rendering on various browsers */
+  -webkit-font-smoothing: antialiased; /* Improve font rendering on WebKit browsers */
+  -moz-osx-font-smoothing: grayscale; /* Improve font rendering on Firefox for Mac */
+}
+
+/* Code Element Styles */
+code {
+  /* Monospace font stack for code elements to ensure consistent character width */
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; /* Set a monospace font for code elements */
+}
+
+/* Tailwind CSS Imports */
+@tailwind base; /* Base styles */
+@tailwind components; /* Component styles */
+@tailwind utilities; /* Utility classes */
+
+/* Custom Background Styles */
+.bg-geometric-pattern {
+  /* SVG-based geometric pattern background for a modern, scalable design */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M..."></path></svg>'); /* Geometric pattern background */
+}
+
+.bg-noise {
+  /* SVG-based noise texture for a subtle, organic background effect */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"><rect width="100" height="100" fill="url(%23noise)"/><defs><filter id="noise" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" result="turbulence"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 0"/></feComponentTransfer><feBlend in="SourceGraphic" in2="turbulence" mode="multiply"/></filter></defs></svg>'); /* Noise texture background */
+}
+
+/* Animation Keyframes */
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.5; }
+}
+
+@keyframes pulse-slower {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.05); opacity: 0.4; }
+}
+
+@keyframes text-reveal {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Animation Classes */
+.animate-pulse-slow {
+  /* Slow, subtle pulsing effect for attention-grabbing elements */
+  animation: pulse-slow 6s infinite; /* Slow pulse animation */
+}
+
+.animate-pulse-slower {
+  /* Even slower pulsing effect for background elements */
+  animation: pulse-slower 8s infinite; /* Slower pulse animation */
+}
+
+.animate-text-reveal {
+  /* Smooth text reveal animation from top to bottom */
+  animation: text-reveal 1s ease-out; /* Text reveal animation */
+}
+
+.animate-fade-in-up {
+  /* Fade in and move up animation for content entrance */
+  animation: fade-in-up 1s ease-out; /* Fade in and move up animation */
+}
+
+.animate-blink {
+  /* Classic blinking animation for cursor-like effects */
+  animation: blink 1s step-end infinite; /* Blinking animation */
+}
