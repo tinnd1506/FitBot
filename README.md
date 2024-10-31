@@ -1,6 +1,6 @@
 # FitBot: AI-Powered Fitness Application
 
-FitBot is a comprehensive fitness application combining a React frontend, Node.js backend, and Flask-based machine learning server. It offers user authentication, AI-powered fitness chat, and real-time deadlift analysis.
+FitBot is an innovative fitness application integrating a React frontend, Node.js backend, and Flask machine learning server. It offers role-based user authentication, an AI fitness chatbot, an admin dashboard, and real-time deadlift analysis.
 
 ## Components
 
