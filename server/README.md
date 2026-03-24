@@ -1,12 +1,12 @@
 # Server-Side
 
-This server-side is built using Node.js and Express. It provides a RESTful API for user authentication, user management, and chat functionalities, integrating MongoDB for data persistence and Google Cloud's Vertex AI for chat responses.
+This server-side is built using Node.js and Express. It provides a RESTful API for user authentication, user management, and chat functionalities, integrating MongoDB for data persistence and NVIDIA's API for chat responses.
 
 ## Features
 
 - **User Authentication**: Supports user registration and login.
 - **User Management**: Admins can view, update, and delete user profiles.
-- **Chat Functionality**: Users can send messages which are processed by Vertex AI to generate responses.
+- **Chat Functionality**: Users can send messages which are processed by NVIDIA's API to generate responses.
 
 ## Installation
 
@@ -29,16 +29,16 @@ Example format:
 - `PORT=<port_number>`: The port number on which the server will run, ensuring it matches with `REACT_APP_API_URL` in the client/src/.env file.
 - `MONGODB_URI=<mongodb_connection_string>`: The URI for connecting to the MongoDB database.
 - `JWT_SECRET=<your_jwt_secret_key>`: The secret key for signing JSON Web Tokens.
-- `GOOGLE_CLOUD_PROJECT=<google_cloud_project_id>`: The Google Cloud project ID for Vertex AI.
-- `GOOGLE_CLOUD_LOCATION=<google_cloud_location>`: The location for the Vertex AI service.
+- `NVIDIA_API_KEY=<your_nvidia_api_key>`: The API key used for NVIDIA chat completions.
+- `NVIDIA_MODEL=<model_name>`: The NVIDIA-hosted model used for chat responses.
 
 Actual variables for testing:
 
 - PORT=5000
 - MONGODB_URI=mongodb+srv://tinnd1506:1234@fitbot.galyt.mongodb.net/?retryWrites=true&w=majority&appName=FitBot
 - JWT_SECRET=your_jwt_secret_key
-- GOOGLE_CLOUD_PROJECT=flash-ward-434114-s0
-- GOOGLE_CLOUD_LOCATION=us-central1
+- NVIDIA_API_KEY=your_nvidia_api_key
+- NVIDIA_MODEL=moonshotai/kimi-k2.5
 
 ## Running the Server
 
@@ -72,7 +72,7 @@ npm start
 - jsonwebtoken: Implementation of JSON Web Tokens.
 - cors: Middleware to enable CORS.
 - dotenv: Loads environment variables from `.env` file.
-- @google-cloud/vertexai: Client library for accessing Google Cloud Vertex AI.
+- NVIDIA chat completions API: Used by the server chat provider to generate responses.
 
 ## Code Structure
 
