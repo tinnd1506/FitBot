@@ -1,5 +1,5 @@
-// Import the generateChatResponse function from the Vertex AI configuration file
-const { generateChatResponse } = require('../config/vertexAI');
+// Import the generateChatResponse function from the Gemini AI configuration file
+const { generateChatResponse } = require('../config/nvidiaAI');
 
 // Function to handle incoming chat messages from the client
 async function handleChatMessage(req, res) {
