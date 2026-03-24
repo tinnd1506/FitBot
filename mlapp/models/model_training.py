@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score
 import pickle
 
 # Load the dataset containing keypoints and corresponding labels
-data_path = 'mlapp/data/data.csv'  # Path to the CSV file
+data_path = 'data/data.csv'  # Path to the CSV file
 df = pd.read_csv(data_path)  # Read the dataset into a DataFrame
 
 # Separate features (X) and labels (y)
