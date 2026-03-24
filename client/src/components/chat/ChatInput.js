@@ -1,12 +1,13 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
-// ChatInput component for handling user input and chat actions
-const ChatInput = ({ input, setInput, handleSend, handleKeyPress, handleEndChat, isLoading }) => {
+// ChatInput component for handling user input with editorial fitness styling
+const ChatInput = ({ input, setInput, handleSend, handleKeyPress, isLoading }) => {
   return (
-    // Main container with styling for a glass-like effect
-    <div className="p-4 bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
-      <div className="flex items-center max-w-2xl mx-auto">
-        {/* Text input field for user messages */}
+    // Main container with card styling
+    <div className="flex items-center gap-3">
+      {/* Text input field for user messages */}
+      <div className="flex-grow relative">
         <input
           type="text"
           value={input}
@@ -14,24 +15,33 @@ const ChatInput = ({ input, setInput, handleSend, handleKeyPress, handleEndChat,
           onKeyPress={handleKeyPress}
           placeholder="Type your message..."
           disabled={isLoading}
-          className="flex-grow p-2 bg-gray-700 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-500 transition duration-300 text-white shadow-inner"
+          className="w-full px-6 py-4 bg-white border border-[var(--light-gray)] rounded-full focus:outline-none focus:border-[var(--terracotta)] focus:ring-2 focus:ring-[var(--terracotta)]/20 transition-all duration-300 text-[var(--charcoal)] placeholder:text-[var(--warm-gray)]"
         />
-        {/* Send button */}
-        <button 
-          onClick={() => handleSend(input)} 
-          disabled={isLoading}
-          className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-r-lg hover:from-purple-700 hover:to-blue-700 transition duration-300 transform hover:scale-110 shadow-lg"
-        >
-          Send
-        </button>
-        {/* End Chat button */}
-        <button 
-          onClick={handleEndChat}
-          className="ml-2 px-4 py-2 bg-gradient-to-r from-red-500 to-pink-500 text-white font-semibold rounded-lg hover:from-red-600 hover:to-pink-600 transition duration-300 transform hover:scale-110 shadow-lg"
-        >
-          End Chat
-        </button>
       </div>
+      
+      {/* Send button */}
+      <motion.button
+        onClick={() => handleSend(input)}
+        disabled={isLoading || !input.trim()}
+        className="px-6 py-4 bg-[var(--charcoal)] text-[var(--oat)] font-semibold rounded-full hover:bg-[var(--terracotta)] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        {isLoading ? (
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+          />
+        ) : (
+          <>
+            <span>Send</span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </>
+        )}
+      </motion.button>
     </div>
   );
 };

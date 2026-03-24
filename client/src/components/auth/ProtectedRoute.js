@@ -14,8 +14,8 @@ const ProtectedRoute = ({ children, allowedRole }) => {
 
   // If an allowed role is specified and the user's role doesn't match, redirect to the appropriate page
   if (allowedRole && userRole !== allowedRole) {
-    // Redirect admins to the admin page, and other users to the chat page
-    return <Navigate to={userRole === 'admin' ? '/admin' : '/chat'} replace />;
+    // Redirect admins to the admin page, and other users to the user dashboard
+    return <Navigate to={userRole === 'admin' ? '/admin' : '/user'} replace />;
   }
 
   // If the user is authenticated and has the correct role (or no role is required), render the children
