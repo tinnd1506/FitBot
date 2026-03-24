@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 # Load the pre-trained model for predictions
 try:
-    with open('mlapp/models/model.pkl', 'rb') as f:
+    with open('models/model.pkl', 'rb') as f:
         model = pickle.load(f)  # Load the model from the specified file
     logger.info("Model loaded successfully.")
 except Exception as e:
@@ -32,7 +32,7 @@ except Exception as e:
 
 # Initialize MediaPipe pose detection with specified confidence thresholds
 mp_pose = mp.solutions.pose
-pose = mp_pose.Pose(min_tracking_confidence=0.5, min_detection_confidence=0.5)
+pose = mp_pose.Pose(min_tracking_confidence=0.5, min_detection_confidence=0.5, static_image_mode=True)
 
 # Global variables to keep track of the current stage and rep count
 current_stage = ''
