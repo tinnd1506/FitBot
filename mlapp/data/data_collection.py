@@ -9,7 +9,7 @@ mp_drawing = mp.solutions.drawing_utils  # Utilities for drawing landmarks on im
 pose = mp_pose.Pose(min_tracking_confidence=0.5, min_detection_confidence=0.5)
 
 # Initialize video capture from a specified path
-video_path = 'mlapp/static/input_video.mp4'  # Path to the input video
+video_path = 'static/input_video.mp4'  # Path to the input video
 cap = cv2.VideoCapture(video_path)
 
 # Lists to store keypoints and corresponding labels
