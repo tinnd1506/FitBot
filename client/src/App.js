@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Im
 import { AuthProvider } from './components/context/AuthContext'; // Updated import path
 import LandingPage from './pages/LandingPage'; // Import landing page component
 import AuthPage from './pages/AuthPage'; // Import authentication page component
-import ChatPage from './pages/UserPage'; // Import chat page component
+import UserPage from './pages/UserPage'; // Import user dashboard page component
 import AdminPage from './pages/AdminPage'; // Import admin page component
-import DeadliftPage from './pages/MLDeadliftPage'; // Import deadlift page component
+import DeadliftPage from './pages/DeadliftPage'; // Import deadlift page component
 import FitnessChatPage from './pages/ChatPage'; // Import fitness chat page component
 import ProtectedRoute from './components/auth/ProtectedRoute'; // Import ProtectedRoute component to handle route protection
 
@@ -20,10 +20,10 @@ function App() {
           {/* Public route for the authentication page */}
           <Route path="/auth" element={<AuthPage />} />
           
-          {/* Protected route for the chat page, accessible only to users */}
-          <Route path="/chat" element={
+          {/* Protected route for the user dashboard, accessible only to users */}
+          <Route path="/user" element={
             <ProtectedRoute allowedRole="user">
-              <ChatPage />
+              <UserPage />
             </ProtectedRoute>
           } />
           
